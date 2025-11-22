@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>You Lost It, We've Found It</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="logo.png" alt="School Logo" class="logo" />
+      <div class="header-text">
+        <h1>You Lost It, We've Found It</h1>
+        <p id="welcomeMsg"></p>
+      </div>
+    </div>
+    <nav id="menu" style="display:none;">
+      <button onclick="showTab('report')" id="btn-report">Report</button>
+      <button onclick="showTab('lost')" id="btn-lost">Lost</button>
+      <button onclick="showTab('found')" id="btn-found">Found</button>
+      <button onclick="logout()" id="btn-logout" class="logout-btn">Logout</button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Login -->
+    <div id="loginSection" class="tab">
+      <h2>Login</h2>
+      <form id="loginForm" class="form-box">
+        <label>Enter student number</label>
+        <input type="text" id="studentNumber" placeholder="e.g. 20251234" required />
+        <button type="submit" class="primary-btn">Login</button>
+      </form>
+    </div>
+
+    <!-- Report -->
+    <div id="report" class="tab" style="display:none;">
+      <h2>Report item</h2>
+      <form id="itemForm" class="form-box">
+        <label>Type</label>
+        <select id="type" onchange="toggleFounderName()">
+          <option value="lost">Lost</option>
+          <option value="found">Found</option>
+        </select>
+
+        <label>Item name</label>
+        <input type="text" id="name" required />
+
+        <label>Description</label>
+        <textarea id="description" rows="3" required></textarea>
+
+        <label>Date</label>
+        <input type="date" id="date" required />
+
+        <label>Place</label>
+        <input type="text" id="place" required />
+
+        <label>Contact</label>
+        <input type="text" id="contact" required />
+
+        <div id="founderNameField" style="display:none;">
+          <label>Founder name (for Found items)</label>
+          <input type="text" id="founderName" />
+        </div>
+
+        <label>Image (optional)</label>
+        <input type="file" id="image" accept="image/*" />
+
+        <button type="submit" class="primary-btn">Upload</button>
+      </form>
+    </div>
+
+    <!-- Lost -->
+    <div id="lost" class="tab" style="display:none;">
+      <h2>Lost items</h2>
+      <div class="items" id="lostItems"></div>
+    </div>
+
+    <!-- Found -->
+    <div id="found" class="tab" style="display:none;">
+      <h2>Found items</h2>
+      <div class="items" id="foundItems"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Renier Van Rooi. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
